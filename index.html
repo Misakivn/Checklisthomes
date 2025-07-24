@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -286,6 +285,20 @@
             const task = checkbox.parentElement;
             task.classList.toggle("completed");
         }
+    </script>
+    <script>
+        // Lưu trạng thái vào localStorage và khôi phục khi tải lại
+        document.querySelectorAll('.task input[type="checkbox"]').forEach((checkbox, idx) => {
+            const saved = localStorage.getItem('task-' + idx);
+            if (saved === 'completed') {
+                checkbox.checked = true;
+                checkbox.parentElement.classList.add('completed');
+            }
+            checkbox.addEventListener('change', function() {
+                checkbox.parentElement.classList.toggle('completed');
+                localStorage.setItem('task-' + idx, checkbox.checked ? 'completed' : '');
+            });
+        });
     </script>
 </body>
 </html>
