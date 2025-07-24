@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List Nhập Nhà Mới</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f2f4f8;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #222;
+            margin-bottom: 30px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .task {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10px;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .task:last-child {
+            border-bottom: none;
+        }
+        .task.completed {
+            background-color: #e2f0d9;
+            color: #666;
+            text-decoration: line-through;
+        }
+        .task span {
+            flex: 1;
+            margin-right: 10px;
+        }
+        input[type="checkbox"] {
+            transform: scale(1.4);
+            accent-color: #28a745;
+        }
+        .status {
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #28a745;
+            margin-left: 10px;
+            display: none;
+        }
+        .task.completed .status {
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🧳 Danh Sách Việc Cần Làm Khi Nhập Nhà Mới</h2>
+
+        <div class="task">
+            <span>Sắp xếp, phân loại đồ đạc: giữ - bán/thanh lý - vứt</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Đặt dịch vụ chuyển nhà hoặc thuê xe tải</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Đăng ký nghỉ/thay đổi hợp đồng điện, nước, gas, internet ở nhà cũ</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Cập nhật địa chỉ nơi làm việc, trường học, ngân hàng, bảo hiểm...</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Đăng ký chuyển địa chỉ tại 市役所</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Gửi giấy chuyển phát địa chỉ tại bưu điện</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Kiểm tra hợp đồng nhà mới: thời hạn, chi phí, điều khoản bảo trì</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Mua bảo hiểm nhà ở (火災保険)</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Kiểm tra hiện trạng căn phòng (gạch, trần, tường, thiết bị)</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Ghi lại hình ảnh hoặc quay video hiện trạng ban đầu</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Nhận chìa khóa, kiểm tra ổ khóa và cửa sổ</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Kiểm tra hoạt động của thiết bị: bếp, nước nóng, điều hòa…</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Điện: gọi công ty điện lực mở cầu dao</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Nước: kiểm tra van nước đã mở</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Gas: đặt lịch nhân viên gas đến mở</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Internet: kiểm tra modem, gọi nhà mạng nếu chưa kết nối</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Sắp xếp giường ngủ, đồ vệ sinh, bếp</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Lắp đèn, rèm cửa, thảm trải sàn</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Dán tên ở hộp thư và cửa nếu cần</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Tổng vệ sinh toàn bộ nhà</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Dán chống trượt, bịt ổ điện nếu có trẻ nhỏ</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Mua bình cứu hỏa mini, bộ sơ cứu</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Mua vật dụng thiếu: khăn, nồi, dao kéo...</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Kết nối Wi-Fi, đăng nhập TV, máy lạnh</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Gắn móc treo, kệ, giá treo quần áo</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Cài đặt app quản lý rác, app cư dân</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Cập nhật địa chỉ trên My Number, thẻ bảo hiểm, ngân hàng</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Thông báo bạn bè/người thân về địa chỉ mới</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Đăng ký liên lạc khẩn cấp với chủ nhà hoặc người thân</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Tạo thói quen đổ rác đúng giờ/khu vực</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Khám phá khu phố mới: siêu thị, trạm tàu, công viên</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Chụp ảnh không gian sống mới</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Lưu thông tin hợp đồng, bảo hiểm, hóa đơn</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Đánh dấu thời gian cần gia hạn hợp đồng nhà/bảo hiểm</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Lên kế hoạch trang trí hoặc nâng cấp</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+        <div class="task">
+            <span>Chuyển đồ đạc từ xe tải vào nhà và kiểm đếm lại</span>
+            <input type="checkbox" onclick="toggleComplete(this)">
+            <span class="status">✔ Hoàn thành</span>
+        </div>
+    
+    </div>
+    <script>
+        function toggleComplete(checkbox) {
+            const task = checkbox.parentElement;
+            task.classList.toggle("completed");
+        }
+    </script>
+</body>
+</html>
