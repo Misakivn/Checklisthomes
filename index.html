@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -48,8 +49,8 @@
       accent-color: #d97706;
     }
 
-    label.checked {
-      opacity: 0.5;
+    input[type="checkbox"]:checked + span {
+      opacity: 0.4;
     }
 
     button {
@@ -117,17 +118,18 @@
       <a href="https://github.com/misakivn/wedding-checklist" target="_blank">📁 Xem mã nguồn gốc tại đây</a>
     </footer>
   </div>
+
   <script>
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach((checkbox, index) => {
       const saved = localStorage.getItem('housemove_' + index);
       if (saved === 'true') {
         checkbox.checked = true;
-        checkbox.parentElement.classList.add('checked');
+        checkbox.parentElement.style.opacity = "0.5";
       }
       checkbox.addEventListener('change', () => {
         localStorage.setItem('housemove_' + index, checkbox.checked);
-        checkbox.parentElement.classList.toggle('checked', checkbox.checked);
+        checkbox.parentElement.style.opacity = checkbox.checked ? "0.5" : "1";
       });
     });
 
@@ -136,7 +138,7 @@
         checkboxes.forEach((checkbox, index) => {
           localStorage.removeItem('housemove_' + index);
           checkbox.checked = false;
-          checkbox.parentElement.classList.remove('checked');
+          checkbox.parentElement.style.opacity = "1";
         });
       }
     }
