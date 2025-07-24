@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -120,28 +119,25 @@
   </div>
 
   <script>
+  document.addEventListener('DOMContentLoaded', () => {
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach((checkbox, index) => {
       const saved = localStorage.getItem('housemove_' + index);
-      if (saved === 'true') {
-        checkbox.checked = true;
-        checkbox.parentElement.style.opacity = "0.5";
-      }
+      if (saved === 'true') checkbox.checked = true;
       checkbox.addEventListener('change', () => {
         localStorage.setItem('housemove_' + index, checkbox.checked);
-        checkbox.parentElement.style.opacity = checkbox.checked ? "0.5" : "1";
       });
     });
 
-    function resetAll() {
+    window.resetAll = function() {
       if (confirm("Bạn có chắc muốn xoá toàn bộ trạng thái đã tích không?")) {
         checkboxes.forEach((checkbox, index) => {
           localStorage.removeItem('housemove_' + index);
-          checkbox.checked = false;
-          checkbox.parentElement.style.opacity = "1";
+          checkbox.checked = false; // Bỏ tích trên giao diện
         });
       }
     }
+  });
   </script>
 </body>
 </html>
